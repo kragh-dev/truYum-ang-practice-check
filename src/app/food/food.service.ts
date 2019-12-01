@@ -24,4 +24,9 @@ export class FoodService {
   getFoodItem(itemId:number):IFoodItem{
     return this.foodItems[this.foodItems.findIndex(item => item.id == itemId)]
   }
+
+  updateFoodItem(foodItem:IFoodItem){
+    let itemIndex:number = this.foodItems.findIndex(item => item.id == foodItem.id)
+    this.foodItems[itemIndex] = foodItem
+  }
 }

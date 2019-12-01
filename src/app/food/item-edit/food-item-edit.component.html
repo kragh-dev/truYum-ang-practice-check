@@ -1,0 +1,10 @@
+<form (ngSubmit)="updateFoodItem(foodName.value)">
+   <input [(ngModel)]="foodItem.name" id="name" name="name" type="text" #foodName value="{{foodItem.name}}" #name="ngModel" required>
+  <div *ngIf="name.errors.required">
+    Name is required.
+  </div>
+<br>
+<button type="submit" class="btn btn-secondary" type="button">Update</button>
+<button type="submit" class="btn btn-secondary" type="button">Update</button>
+</form>
+<p>{{foodItem.name}}</p>
