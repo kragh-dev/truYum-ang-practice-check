@@ -162,3 +162,10 @@ body
 	display: flex;
 	align-items: center;
 }
+
+.error-page{
+	padding: 10px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}

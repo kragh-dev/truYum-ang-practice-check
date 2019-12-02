@@ -13,6 +13,10 @@ import { FoodItemEditComponent } from './food/item-edit/food-item-edit.component
 import { LoginComponent } from './site/login/login.component';
 import { SignupComponent } from './site/signup/signup.component';
 import { HeaderComponent } from './site/header/header.component';
+import { AuthGuardService } from './site/auth-guard.service';
+import { UserProfileComponent } from './profile/user-profile/user-profile.component';
+import { HomeComponent } from './site/home/home.component';
+import { PageNotFoundComponent } from './site/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +29,9 @@ import { HeaderComponent } from './site/header/header.component';
     LoginComponent,
     SignupComponent,
     HeaderComponent,
+    UserProfileComponent,
+    HomeComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,11 +39,15 @@ import { HeaderComponent } from './site/header/header.component';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
+      {path:'home',component:HomeComponent},
       {path:'menu',component:FoodMenuComponent},
-      {path:'cart',component:CartComponent},
-      {path:'edit/:id',component:FoodItemEditComponent},
+      {path:'cart',component:CartComponent,canActivate:[AuthGuardService]},
+      {path:'edit/:id',component:FoodItemEditComponent,canActivate:[AuthGuardService]},
       {path:'login',component:LoginComponent},
-      {path:'signup',component:SignupComponent}
+      {path:'signup',component:SignupComponent},
+      {path:'profile/:username',component:UserProfileComponent,canActivate:[AuthGuardService]},
+      {path:'',redirectTo:'home',pathMatch:'full'},
+      {path:'**',component:PageNotFoundComponent}
     ]),
   ],
   providers: [],

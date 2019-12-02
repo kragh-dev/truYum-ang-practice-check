@@ -10,7 +10,9 @@
             <small class="card-text"><span [className]="foodItem.active?'badge badge-success item-status':'badge badge-danger item-status'">{{foodItem.active?'Active':'Inactive'}}</span>{{foodItem.category}}</small>
             <small *ngIf='foodItem.freeDelivery' class="card-text free-delivery float-right"><i class="material-icons free-del-truck">local_shipping</i><span class="badge free-del-badge">FREE</span></small>
         </div>
-        <div class="container px-3" id="item1"></div>
+        <div *ngIf="this.cartService.cartItemAdded && this.cartService.itemToBeAdded.id == foodItem.id" class=" mx-3 alert alert-success">
+            <small>Item added successfully to cart</small>
+        </div>
         <div class="container-fluid px-3 pb-3 add-to-cart-box">
             <div class="container date-of-launch-container">
                 <small class="cart-text date-of-launch"><i class="material-icons date-of-launch-icon">access_time</i>Launch</small>
