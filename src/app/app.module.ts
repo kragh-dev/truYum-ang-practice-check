@@ -17,6 +17,7 @@ import { AuthGuardService } from './site/auth-guard.service';
 import { UserProfileComponent } from './profile/user-profile/user-profile.component';
 import { HomeComponent } from './site/home/home.component';
 import { PageNotFoundComponent } from './site/page-not-found/page-not-found.component';
+import { FooterComponent } from './site/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { PageNotFoundComponent } from './site/page-not-found/page-not-found.comp
     UserProfileComponent,
     HomeComponent,
     PageNotFoundComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
