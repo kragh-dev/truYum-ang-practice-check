@@ -1,24 +1,2 @@
-<nav class="navbar navbar-expand-lg navbar-dark navbar fixed-top">
-    <a class="navbar-brand" href="#"><i class="material-icons navbar-brand-icon">local_dining</i>truYum</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-                <a class="nav-link" [routerLink]="['/menu']">Menu Items <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/cart']">Cart</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link nav-account" href="#"><i class="material-icons nav-account-icon">perm_identity</i>John</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/favEmployee']" [queryParams]="{imageUrl:'https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',id:1}">Logout</a>
-            </li>
-        </ul>
-    </div>
-    </nav>
-    <div class="container-fluid mt-1 py-4"></div>
+<app-header></app-header>
 <router-outlet></router-outlet>

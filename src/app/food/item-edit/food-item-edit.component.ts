@@ -14,13 +14,28 @@ export class FoodItemEditComponent implements OnInit {
   constructor(private activatedRoute:ActivatedRoute, private foodService:FoodService) { }
 
   ngOnInit() {
-    this.itemId = this.activatedRoute.snapshot.params['id']
+    this.itemId = this.activatedRoute.snapshot.params['id'] as number
     this.foodItem = this.foodService.getFoodItem(this.itemId)
+    console.log(this.foodItem)
   }
 
-  updateFoodItem(name:string)
+  updateFoodItem(name:string,price:number,dateOfLaunch:Date,category:string,active:boolean,freeDelivery:boolean)
   {
     this.foodItem.name = name
+    this.foodItem.price = price
+    this.foodItem.dateOfLaunch = dateOfLaunch
+    this.foodItem.category = category
+    if(active == true)
+    this.foodItem.active = true
+    else
+    this.foodItem.active = false
+    
+    this.foodItem.freeDelivery = freeDelivery
     this.foodService.updateFoodItem(this.foodItem)
+  }
+
+  getItemName()
+  {
+    return this.foodItem.name
   }
 }

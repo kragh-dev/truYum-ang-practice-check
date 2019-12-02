@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class FoodItemComponent implements OnInit {
   @Input('theFoodItem') foodItem:IFoodItem;
-  isAdmin:boolean = true
+  isAdmin:boolean = false
   @Output() addToCartRequest: EventEmitter<number> = new EventEmitter<number>()
   constructor(private foodService: FoodService, private router:Router) {}
 

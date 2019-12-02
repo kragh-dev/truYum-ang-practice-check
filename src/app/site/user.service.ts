@@ -8,7 +8,8 @@ export class UserService {
 
   userList: IUser[] = [
     {username:'admin', firstName: 'Kaarthikeyan', lastName: 'Raghavan', password:'admin', role: 'admin'},
-    {username:'sree', firstName: 'Sree', lastName: 'Ranjhani', password:'sree', role: 'customer'}
+    {username:'sree', firstName: 'Sree', lastName: 'Ranjhani', password:'sree', role: 'customer'},
+    {username:'adminSru', firstName: 'Sruthi', lastName: 'Polaki', password:'admin', role: 'admin'},
   ]
   constructor() { }
 

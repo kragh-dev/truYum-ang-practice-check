@@ -1,10 +1,60 @@
-<form (ngSubmit)="updateFoodItem(foodName.value)">
-   <input [(ngModel)]="foodItem.name" id="name" name="name" type="text" #foodName value="{{foodItem.name}}" #name="ngModel" required>
-  <div *ngIf="name.errors.required">
-    Name is required.
-  </div>
-<br>
-<button type="submit" class="btn btn-secondary" type="button">Update</button>
-<button type="submit" class="btn btn-secondary" type="button">Update</button>
-</form>
-<p>{{foodItem.name}}</p>
+<div class="container-fluid px-5 py-5">
+  <h3>Edit Menu Item</h3>
+  <form (ngSubmit)="updateFoodItem(foodName.value,foodPrice.value,foodDOL.value,foodCategory.value,foodActive.value,foodFreeDelivery.checked)">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12 mt-2">
+        
+        <div class="form-group">
+          <label for="itemName">Name:</label>
+          <input [ngModel]="foodItem.name" name="name" #foodName type="text" class="form-control" id="itemName" #name="ngModel" required>
+        </div>
+        <!-- <div class="text text-danger" *ngIf="name.errors.required">
+          Name is required.
+        </div> -->
+      </div>
+      <div class="col-lg-3 col-md-12 col-sm-12 mt-2">
+        <div class="form-group">
+          <label for="itemPrice">Price:</label>
+          <input [ngModel]="foodItem.price" name="price" #foodPrice type="text" class="form-control" id="itemPrice" #price="ngModel" required>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-12 col-sm-12 mt-2">
+        <div class="form-group">
+          <label for="itemDOL">Date of Launch:</label>
+          <input [ngModel]="foodItem.dateOfLaunch | date:'yyyy-MM-dd'" name="DOL" #foodDOL type="date" class="form-control" id="itemDOL" >
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-12 col-sm-12 mt-2">
+        <div class="form-group">
+          <label for="itemCategory">Category:</label>
+          <select [ngModel]="foodItem.category" name="categories" #foodCategory id="itemCategory" class="form-control">
+            <option selected> Select a Category</option>
+            <option value="Starter">Starter</option>
+            <option value="Main Course">Main Course</option>
+            <option value="Dessert">Dessert</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-12 col-sm-12 mt-2">
+        <div class="form-group">
+          <label for="itemActive">Active:</label>
+          <div>
+            <input type="radio" id="itemActive" #foodActive class="active-status" [(ngModel)]="foodItem.active"  name="itemActive">Yes
+            <input type="radio" id="itemActive" #foodActive class="active-status" [(ngModel)]="foodItem.active"    name="itemActive">No
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-12 mt-2">
+        <div class="form-group">
+          <input type="checkbox" class="free-del-status" #foodFreeDelivery id="itemFreeDelivery" [checked]="foodItem.freeDelivery">
+          <label for="itemName">Free Delivery</label>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-12 mt-2">
+        <div class="form-group">
+          <button type="submit" onclick="validate()" class="btn add-to-cart">Save</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

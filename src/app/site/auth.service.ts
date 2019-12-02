@@ -6,7 +6,9 @@ import { IUser } from './user';
   providedIn: 'root'
 })
 export class AuthService {
-  loggedInUser:IUser 
+  loggedInUser:IUser = null
+  isAdmin:boolean = false
+  isUserLoggedIn:boolean = false
   constructor(private userService:UserService) { }
 
   authenticate(username:string,password:string)
@@ -14,6 +16,13 @@ export class AuthService {
     this.loggedInUser = this.userService.getUser(username)
     if(this.loggedInUser!=null && this.loggedInUser.username == username && this.loggedInUser.password == password)
     {
+      if(this.loggedInUser.role == 'admin')
+      {
+        this.isAdmin = true
+      }
+      else {
+        this.isAdmin = false
+      }
       return this.loggedInUser
     }
     else

@@ -11,6 +11,8 @@ import { CartComponent } from './shopping/cart/cart.component';
 import { RouterModule } from '@angular/router';
 import { FoodItemEditComponent } from './food/item-edit/food-item-edit.component';
 import { LoginComponent } from './site/login/login.component';
+import { SignupComponent } from './site/signup/signup.component';
+import { HeaderComponent } from './site/header/header.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { LoginComponent } from './site/login/login.component';
     CartComponent,
     FoodItemEditComponent,
     LoginComponent,
+    SignupComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +35,8 @@ import { LoginComponent } from './site/login/login.component';
       {path:'menu',component:FoodMenuComponent},
       {path:'cart',component:CartComponent},
       {path:'edit/:id',component:FoodItemEditComponent},
+      {path:'login',component:LoginComponent},
+      {path:'signup',component:SignupComponent}
     ]),
   ],
   providers: [],
